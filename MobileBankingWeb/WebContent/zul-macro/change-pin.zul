@@ -1,0 +1,27 @@
+
+<window title="Change PIN" border="normal" width="200px" apply="msc.jkuat.mobile.web.ui.ChangePin" id="winChgPin">
+<label style="color:red" id="lblMsg"/>
+<grid>
+<rows>
+<row>
+Current:<textbox id="txtCurrent" maxlength="4" width="50px" type="password"/>
+</row>
+<row>
+New:<textbox id="txtNew1" maxlength="4" width="50px" type="password"/>
+</row>
+<row>
+New (Again):<textbox id="txtNew2" maxlength="4" width="50px" type="password"/>
+</row>
+<row>
+<button label="Cancel" id="btnCancel">
+<custom-attributes target="/zul-macro/home.zul"/>
+</button>
+<button label="Change" id="btnChange">
+<custom-attributes target="/zul-macro/logon.zul"/>
+</button>
+<!-- disabled="true" -->
+</row>
+</rows>
+</grid>
+
+</window>

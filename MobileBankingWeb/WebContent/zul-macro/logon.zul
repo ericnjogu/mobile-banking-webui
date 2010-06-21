@@ -1,0 +1,19 @@
+<window id="logonMacro" title="Logon" border="normal" width="200px"
+ apply="msc.jkuat.mobile.web.ui.Logon">
+	<label id="lblLogin" visible="false" style="color: red"/>
+	<grid>
+		<rows>
+			<row>
+				PIN:
+				<textbox id="txtPin" type="password" maxlength="4" width="50px"/>
+			</row>
+			<row spans="2" align="ceft">
+				<button id="btnLogin" label="Login" />
+				<!-- disabled="true" -->
+			</row>
+		</rows>
+	</grid>
+
+	 <custom-attributes next="/zul-macro/home.zul"/>
+	  
+</window>

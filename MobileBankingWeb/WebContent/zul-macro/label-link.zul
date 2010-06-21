@@ -1,0 +1,5 @@
+<label id="lblMacro" value="${arg.val}" tooltip="${arg.tip}"
+	style="text-decoration:underline;color:#3399FF;cursor:pointer"
+	apply="msc.jkuat.mobile.web.ui.LabelLink">
+	<custom-attributes target="${arg.target}"/>
+	</label>

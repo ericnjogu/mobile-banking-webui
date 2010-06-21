@@ -1,0 +1,29 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="${arg.account.name} Statement" border="normal" width="200px"
+apply="msc.jkuat.mobile.web.ui.Statement" id="winStmt">
+<listbox id="lstStmt" rows="5">
+		<listhead>
+			<listheader label="Date" width="60px" />
+			<listheader label="Details" width="70px" />
+			<listheader label="Amount" width="70px" />
+		</listhead>
+		<listitem forEach="${arg.account.miniStatement}"
+			value="${each}" >
+			<listcell label="${each.formattedDate}" />
+			<listcell label="${each.description}" />
+			<listcell label="${each.amount}" />
+		</listitem>
+	</listbox>
+	<!--
+	<vbox>
+		<hbox>-->
+			<label
+				style="text-decoration:underline;color:#3399FF;cursor:pointer"
+				 value="Back" id="lblBack" >
+				 <custom-attributes back="/zul-macro/accounts.zul" />
+				 </label>
+				 <!--
+		</hbox>
+	</vbox>
+	-->
+</window>

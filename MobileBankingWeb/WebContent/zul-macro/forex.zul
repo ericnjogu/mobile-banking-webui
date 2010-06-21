@@ -1,0 +1,23 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Forex Info" border="normal"
+	apply="msc.jkuat.mobile.web.ui.Forex" width="200px" id="winForex">
+	<listbox id="lstForex" rows="4">
+		<listhead>
+			<listheader label="Symbol" width="60px"/>
+			<listheader label="Name" width="90px"/>
+			<listheader label="Rate" width="50px"/>
+		</listhead>
+		<listitem forEach="${bank_service.forexRates}"
+			value="${each}">
+			<listcell label="${each.symbol}" />
+			<listcell label="${each.currencyName}" />
+			<listcell label="${each.rate}" />
+		</listitem>
+	</listbox>
+	<!-- 
+	<label
+		style="text-decoration:underline;color:#3399FF;cursor:pointer"
+		tooltip="Buy Airtime, Transfer funds" value="Home" id="lblHome" />
+		 -->
+	<custom-attributes home="/zul-macro/home.zul" />
+</window>

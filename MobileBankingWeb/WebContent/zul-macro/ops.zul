@@ -1,0 +1,27 @@
+<window title="Operations" border="normal" width="200px"
+	apply="msc.jkuat.mobile.web.ui.Ops" id="winOps">
+	<vbox>
+		<label
+			style="text-decoration:underline;color:#3399FF;cursor:pointer"
+			value="Buy Airtime" id="lblAirtime">
+			<custom-attributes target="/zul-macro/airtime.zul" />
+		</label>
+		<label
+			style="text-decoration:underline;color:#3399FF;cursor:pointer"
+			value="Pay Bill" id="lblBill">
+			<custom-attributes target="/zul-macro/bill.zul" />
+		</label>
+		<label
+			style="text-decoration:underline;color:#3399FF;cursor:pointer"
+			value="Transfer Funds" id="lblTransfer">
+			<custom-attributes target="/zul-macro/transfer.zul" />
+		</label>
+		<!--
+		<label
+			style="text-decoration:underline;color:#3399FF;cursor:pointer"
+			value="Home" id="lblHome">
+			<custom-attributes target="/zul-macro/home.zul" />
+		</label>
+		-->
+	</vbox>
+</window>

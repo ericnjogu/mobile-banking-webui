@@ -1,0 +1,30 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Accounts" border="normal" width="200px" apply="msc.jkuat.mobile.web.ui.Accounts" id="winAccounts">
+	<listbox id="lstForex" rows="5">
+		<listhead>
+			<listheader label="Number" width="60px" />
+			<listheader label="Name" width="70px" />
+			<listheader label="Balance" width="70px" />
+		</listhead>
+		<listitem forEach="${bank_service.customerAccounts}"
+			value="${each}" >
+			<listcell label="${each.number}" />
+			<listcell label="${each.name}" />
+			<listcell label="${each.balance}" />
+		</listitem>
+	</listbox>
+	<vbox>
+		<label id="lblMsg" style="color:#00C000"/>
+		<!-- 
+		<hbox>
+			<label
+				style="text-decoration:underline;color:#3399FF;cursor:pointer"
+				tooltip="Buy Airtime, Transfer funds" value="Home" id="lblHome" />
+				
+		</hbox>
+		-->
+		<button label="Statement" id="btnStmt"/>
+	</vbox>
+	<!-- <custom-attributes home="/zul-macro/home.zul" /> -->
+	<custom-attributes stmt="/zul-macro/statement.zul" />
+</window>

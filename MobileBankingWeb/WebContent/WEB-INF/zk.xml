@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	Created by ZK Studio
+-->
+
+<zk>
+
+		<listener>
+                <description>ThreadLocal Synchronization Listener</description>
+                <listener-class>org.zkoss.zkplus.util.ThreadLocalListener</listener-class>
+        </listener>
+ <preference>
+        <name>ThreadLocal</name>
+        <value>
+                org.springframework.web.context.request.RequestContextHolder=requestAttributesHolder,inheritableRequestAttributesHolder;
+        </value>
+ </preference>
+</zk>

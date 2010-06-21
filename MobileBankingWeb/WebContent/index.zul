@@ -1,0 +1,50 @@
+<?page title="Mobile Banking" contentType="text/html;charset=UTF-8" id="index"?>
+
+<zk>
+	<menubar width="200px" apply="msc.jkuat.mobile.web.ui.Menu"
+		visible="false" id="mnuBar">
+		<menu label="Info">
+			<menupopup>
+				<menuitem label="Accounts" id="mnuAcs">
+					<custom-attributes target="/zul-macro/accounts.zul" />
+				</menuitem>
+				<menuitem label="Forex" id="mnuFrx">
+					<custom-attributes target="/zul-macro/forex.zul" />
+				</menuitem>
+				<menuseparator />
+			</menupopup>
+		</menu>
+		<menu label="Transact" id="mnuTx">
+			<menupopup>
+				<menuitem label="Airtime" id="mnuAir">
+					<custom-attributes target="/zul-macro/airtime.zul" />
+				</menuitem>
+				<menuitem label="Pay Bill" id="mnuBill">
+					<custom-attributes target="/zul-macro/bill.zul" />
+				</menuitem>
+				<menuitem label="Transfer" id="mnuTfr">
+					<custom-attributes target="/zul-macro/transfer.zul" />
+				</menuitem>
+			</menupopup>
+		</menu>
+		<menu label="Change" id="mnuSec">
+			<menupopup>
+				<menuitem label="Change Pin" id="mnuChgPin">
+					<custom-attributes
+						target="/zul-macro/change-pin.zul" />
+				</menuitem>
+				<menuitem label="Logout" id="mnuLogout">
+					<custom-attributes target="/zul-macro/logon.zul" />
+				</menuitem>
+			</menupopup>
+		</menu>
+	</menubar>
+	<div id="content">
+		<!-- logon window declaration -->
+		<?component name="logonWindow" macroURI="/zul-macro/logon.zul"?>
+		<!-- logon window use - initially visible -->
+		<logonWindow id="logon" />
+		<!-- true for the initial display. manipulated programatically thereafter -->
+		<custom-attributes current="logon" />
+	</div>
+</zk>

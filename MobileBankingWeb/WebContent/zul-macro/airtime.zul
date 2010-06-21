@@ -1,0 +1,31 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Buy Airtime" border="normal" width="200px"
+	apply="msc.jkuat.mobile.web.ui.Airtime" id="winAir">
+	<grid>
+		<rows>
+			<row>
+				Account:
+				<listbox mold="select" rows="1" id="lstAcs">
+					<listitem forEach="${bank_service.customerAccounts}"
+						value="${each}" selected="${each.number == 1002}">
+						<listcell label="${each.name}"/>
+					</listitem>
+				</listbox>
+			</row>
+			<row>
+			Phone: <decimalbox id="txtPhone" maxlength="10"/>
+			</row>
+			<row>
+			Amount: <decimalbox id="txtAmount"/>
+			</row>
+			<row>
+			<button id="btnCancel" label="Cancel">
+				<custom-attributes target="/zul-macro/home.zul" />
+			</button>
+			<button id="btnBuy" label="Buy" ><!-- disabled="true" -->
+				<custom-attributes target="/zul-macro/home.zul" />
+			</button>
+			</row>
+		</rows>
+	</grid>
+</window>

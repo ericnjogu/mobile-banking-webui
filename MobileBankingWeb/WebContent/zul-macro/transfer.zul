@@ -1,0 +1,38 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Transfer Funds" border="normal" width="200px"
+	apply="msc.jkuat.mobile.web.ui.Transfer" id="winTrans">
+	<grid>
+		<rows>
+			<row>
+				From Account :
+				<listbox mold="select" rows="1" id="lstAcsFrom">
+					<listitem forEach="${bank_service.customerAccounts}"
+						value="${each}" selected="${each.number == 1001}">
+						<listcell label="${each.name}" />
+					</listitem>
+				</listbox>
+			</row>
+			<row>
+				To Account:
+				<listbox mold="select" rows="1" id="lstAcsTo">
+					<listitem forEach="${bank_service.customerAccounts}"
+						value="${each}" selected="${each.number == 1002}">
+						<listcell label="${each.name}" />
+					</listitem>
+				</listbox>
+			</row>
+			<row>
+				Amount:
+				<decimalbox id="txtAmount" />
+			</row>
+			<row>
+				<button id="btnCancel" label="Cancel">
+					<custom-attributes target="/zul-macro/home.zul" />
+				</button>
+				<button id="btnTransfer" label="Transfer">
+					<custom-attributes target="/zul-macro/home.zul" />
+				</button>
+			</row>
+		</rows>
+	</grid>
+</window>
