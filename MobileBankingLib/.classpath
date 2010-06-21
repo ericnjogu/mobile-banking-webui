@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons logging"/>
+	<classpathentry kind="lib" path="/MobileBankingWeb/WebContent/WEB-INF/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/MobileBankingWeb/WebContent/WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

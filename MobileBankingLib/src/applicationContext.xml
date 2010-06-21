@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+            
+            
+    <!-- DAOs and userInfo need to be configured as session beans -->
+    <bean id="transaction" class="msc.jkuat.mobile.impl.Transaction" scope="prototype">
+    	<property name="dateFormat" value="dd-MMM-yy"/>
+    </bean>
+	<bean name="user_info" class="msc.jkuat.mobile.impl.UserInfo" scope="session">
+		<property name="PIN" value="test"/>
+		<aop:scoped-proxy/>
+	</bean>
+	<bean name="transaction_dao" class="msc.jkuat.mobile.impl.dao.TransactionDao" scope="session">
+	<aop:scoped-proxy/>
+	</bean>
+	<bean name="forex_dao" class="msc.jkuat.mobile.impl.dao.ForexRateDao">
+		<property name="forexStore">
+			<list>
+				<bean class="msc.jkuat.mobile.impl.ForexRate">
+					<property name="currencyName" value="Tz Shillings" />
+					<property name="rate" value="15" />
+					<property name="symbol" value="TZS" />
+				</bean>
+				<bean class="msc.jkuat.mobile.impl.ForexRate">
+					<property name="currencyName" value="UG Shillings" />
+					<property name="rate" value="25" />
+					<property name="symbol" value="UGS" />
+				</bean>
+				<bean class="msc.jkuat.mobile.impl.ForexRate">
+					<property name="currencyName" value="SA Rand" />
+					<property name="rate" value="10" />
+					<property name="symbol" value="ZAR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean name="utility_dao" class="msc.jkuat.mobile.impl.dao.UtilityAccountDao" scope="session">
+		<property name="utilityAccountStore">
+			<list>
+				<bean class="msc.jkuat.mobile.impl.Account">
+					<property name="name" value="Electricity" />
+					<property name="number" value="3001" />
+				</bean>
+				<bean class="msc.jkuat.mobile.impl.Account">
+					<property name="name" value="Water" />
+					<property name="number" value="3002" />
+				</bean>
+				<bean class="msc.jkuat.mobile.impl.Account">
+					<property name="name" value="Insurance" />
+					<property name="number" value="3003" />
+				</bean>
+				<bean class="msc.jkuat.mobile.impl.Account">
+					<property name="name" value="Rent" />
+					<property name="number" value="3004" />
+				</bean>
+			</list>
+		</property>
+		<aop:scoped-proxy/>
+	</bean>
+	<bean name="customer_account_dao" class="msc.jkuat.mobile.impl.dao.CustomerAccountDao" scope="session">
+		<property name="customerAccountStore">
+			<list>
+				<bean class="msc.jkuat.mobile.impl.CustomerAccount">
+					<property name="name" value="Savings" />
+					<property name="number" value="1001" />
+					<property name="balance" value="250" />
+					<property name="interestRate" value="4" />
+					<property name="minimumBalance" value="20" />
+					<property name="transactionDao">
+						<ref bean="transaction_dao" />
+					</property>
+				</bean>
+				<bean class="msc.jkuat.mobile.impl.CustomerAccount">
+					<property name="name" value="Current" />
+					<property name="number" value="1002" />
+					<property name="balance" value="100" />
+					<property name="interestRate" value="1" />
+					<property name="minimumBalance" value="0" />
+					<property name="transactionDao">
+						<ref bean="transaction_dao" />
+					</property>
+				</bean>
+				<bean class="msc.jkuat.mobile.impl.CustomerAccount">
+					<property name="name" value="Children" />
+					<property name="number" value="1003" />
+					<property name="balance" value="150" />
+					<property name="interestRate" value="4" />
+					<property name="minimumBalance" value="10" />
+					<property name="transactionDao">
+						<ref bean="transaction_dao" />
+					</property>
+				</bean>
+				<bean class="msc.jkuat.mobile.impl.CustomerAccount">
+					<property name="name" value="Salary" />
+					<property name="number" value="1004" />
+					<property name="balance" value="50" />
+					<property name="interestRate" value="4" />
+					<property name="minimumBalance" value="5" />
+					<property name="transactionDao">
+						<ref bean="transaction_dao" />
+					</property>
+				</bean>
+			</list>
+		</property>
+		<aop:scoped-proxy/>
+	</bean>
+	<bean name="bank_service" class="msc.jkuat.mobile.impl.BankService">
+		<property name="customerAccountDao">
+			<ref bean="customer_account_dao" />
+		</property>
+		<property name="forexRateDao">
+			<ref bean="forex_dao" />
+		</property>
+		<property name="userInfo">
+			<ref bean="user_info" />
+		</property>
+		<property name="utilityAccountDao">
+			<ref bean="utility_dao" />
+		</property>
+	</bean>
+</beans>
